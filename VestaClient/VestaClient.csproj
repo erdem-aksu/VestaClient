@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
+    <!--    <GenerateDocumentationFile>true</GenerateDocumentationFile>-->
+    <PackageVersion>1.0.0</PackageVersion>
+    <TargetFrameworks>netstandard2.1;netcoreapp2.2</TargetFrameworks>
+  </PropertyGroup>
+
+  <!-- Needed for code coverage -->
+  <PropertyGroup>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>VestaClient</PackageId>
+    <Version>$(SemVer)</Version>
+    <Authors>Erdem Aksu</Authors>
+    <Company>Erdem Aksu</Company>
+    <Product>VestaClient</Product>
+    <Description></Description>
+    <PackageTags>pinsharp;pinterest;api;client;wrapper;library</PackageTags>
+    <PackageReleaseNotes>Updated with .NET Core support, rate limit information and custom exceptions.</PackageReleaseNotes>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <IncludeSource>True</IncludeSource>
+    <IncludeSymbols>True</IncludeSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
+    <DefineConstants>$(DefineConstants);NETSTANDARD</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
+    <PackageReference Include="System.Reflection" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.6.0-rc1.19456.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.16" />
+    <PackageReference Include="MimeMapping" Version="1.0.1.15" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models" />
+  </ItemGroup>
+
+</Project>
